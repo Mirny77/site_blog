@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class = post>
+
+     <div class="container " id ="news">
+         <div class ="row">
+             {% for post in newposts %}
+                 <p id ="new">New</p>
+                <div class ="col s12 center-align" id="newpost">
+
+                        <p id="post-name">{{post.name}}</p>
+                        <p id="post-text">{{post.text|truncatechars_html:150}}</p>
+
+
+                        <div class = "img-new"><img src="{{ post.image.url}}" class="img-responsive" alt="" width="300px" height="200px" ></div>
+
+
+
+
+
+                    <div class ="bth-p"><button type="submit"  class="btn btn-primary " ><p>Читать</p></button></div>
+
+                </div>
+
+
+
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="st"> Другие статьи</div>
+    {# <a class="btn btn-default" href="{% url 'add_post'  %}">добавить пост</a> #}
+
+
+    <div class ="container">
+        <div class = "row">
+            {% for post in posts%}
+            <div class="col s3 center-align " id = "post-item">
+
+                 <div class = "data-post" > {{post.created|date:"j E Y" }}</div>
+                <div class ="img-post"><img src="{{ post.image.url}}" class="img-responsive" alt="" width="217px" height="117px" ></div>
+                <div class = "name-post">{{post.name|truncatechars_html:20}}</div>
+                <div class = "text-post">{{post.text|truncatechars_html:30 }}</div>
+
+
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+{% endblock %}

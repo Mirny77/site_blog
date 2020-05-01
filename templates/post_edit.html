@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container-edit">
+    <div class="row-edit">
+        <form action="" method="post" class="form-inline text-center" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="form-name">{{ form.name }}</div>
+                            <button type="submit"  class="btn1 btn-primary btn-orange" ><p id="p12">Опубликовать</p></button>
+                              <div class="form-text">{{ form.text}}</div>
+                              <div class="form-image">{{ form.image}}</div>
+
+
+
+
+                        </form>
+
+
+    </div>
+
+    </div>
+
+{% endblock %}
+
+
